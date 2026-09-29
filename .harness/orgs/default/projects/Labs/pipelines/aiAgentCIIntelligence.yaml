@@ -54,7 +54,7 @@ pipeline:
                         name: CI Intel Agent
                         identifier: CI_Intel_Agent
                         spec:
-                          agentName: buildTurbo@1.0.0
+                          agentName: buildTurbo
                           agentSettings:
                             model_name: claude-opus-4-5-20251101
                             test_agent_llm_connector: ""
