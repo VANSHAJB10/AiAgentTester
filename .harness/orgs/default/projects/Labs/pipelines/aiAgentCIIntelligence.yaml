@@ -45,3 +45,20 @@ pipeline:
                           agentName: ca_ha_ha_ha
                           agentSettings:
                             llmConnector: account.harnessOpenAI
+              - stepGroup:
+                  name: "Actual AI Agent - CI Intelligence "
+                  identifier: Actual_AI_Agent_CI_Intelligence
+                  steps:
+                    - step:
+                        type: Agent
+                        name: CI Intel Agent
+                        identifier: CI_Intel_Agent
+                        spec:
+                          agentName: buildTurbo@1.0.0
+                          agentSettings:
+                            model_name: claude-opus-4-5-20251101
+                            test_agent_llm_connector: ""
+                            cache_intel_use_custom_key: false
+                            llm_connector: account.harnessAnthropic
+                            mcp_connectors:
+                              - uuu
