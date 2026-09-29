@@ -39,7 +39,7 @@ pipeline:
                   identifier: Run_1
                   spec:
                     connectorRef: dockervanshajb10
-                    image: hello-world
+                    image: alpine:latest
                     shell: Sh
                     command: echo "hey man!"
               - stepGroup:
