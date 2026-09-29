@@ -33,18 +33,15 @@ pipeline:
               os: Linux
           execution:
             steps:
-              - stepGroup:
-                  name: AI Agent - CI Intelligence
-                  identifier: AI_Agent_CI_Intelligence
-                  steps:
-                    - step:
-                        type: Agent
-                        name: Agent_1
-                        identifier: Agent_1
-                        spec:
-                          agentName: ca_ha_ha_ha
-                          agentSettings:
-                            llmConnector: account.harnessOpenAI
+              - step:
+                  type: Run
+                  name: Run_1
+                  identifier: Run_1
+                  spec:
+                    connectorRef: dockervanshajb10
+                    image: hello-world
+                    shell: Sh
+                    command: echo "hey man!"
               - stepGroup:
                   name: "Actual AI Agent - CI Intelligence "
                   identifier: Actual_AI_Agent_CI_Intelligence
