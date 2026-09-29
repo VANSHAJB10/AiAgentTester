@@ -30,7 +30,7 @@ pipeline:
               namespace: default
               automountServiceAccountToken: true
               nodeSelector: {}
-              os: Windows
+              os: Linux
           execution:
             steps:
               - step:
