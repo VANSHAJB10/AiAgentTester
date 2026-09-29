@@ -1,0 +1,47 @@
+pipeline:
+  name: aiAgentCIIntelligence
+  identifier: aiAgentCIIntelligence
+  projectIdentifier: Labs
+  orgIdentifier: default
+  tags: {}
+  properties:
+    ci:
+      codebase:
+        connectorRef: account.adminGithub
+        repoName: AiAgentTester
+        build: <+input>
+  stages:
+    - stage:
+        name: ci
+        identifier: ci
+        description: ""
+        type: CI
+        spec:
+          cloneCodebase: true
+          caching:
+            enabled: true
+            override: true
+          buildIntelligence:
+            enabled: true
+          infrastructure:
+            type: KubernetesDirect
+            spec:
+              connectorRef: k8testcluster
+              namespace: default
+              automountServiceAccountToken: true
+              nodeSelector: {}
+              os: Linux
+          execution:
+            steps:
+              - stepGroup:
+                  name: AI Agent - CI Intelligence
+                  identifier: AI_Agent_CI_Intelligence
+                  steps:
+                    - step:
+                        type: Agent
+                        name: Agent_1
+                        identifier: Agent_1
+                        spec:
+                          agentName: ca_ha_ha_ha
+                          agentSettings:
+                            llmConnector: account.harnessOpenAI
