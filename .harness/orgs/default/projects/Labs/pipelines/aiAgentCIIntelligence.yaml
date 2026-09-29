@@ -30,7 +30,7 @@ pipeline:
               namespace: default
               automountServiceAccountToken: true
               nodeSelector: {}
-              os: Linux
+              os: Windows
           execution:
             steps:
               - step:
@@ -51,9 +51,11 @@ pipeline:
                         name: CI Intel Agent
                         identifier: CI_Intel_Agent
                         spec:
-                          agentName: ca_custom_ci_intelligence_enablement
+                          agentName: buildTurbo
                           agentSettings:
-                            model_name: claude-opus-4-5-20251101
+                            model_name: global.anthropic.claude-opus-4-6-v1
                             test_agent_llm_connector: ""
                             cache_intel_use_custom_key: false
                             llm_connector: account.harnessAnthropic
+                            mcp_connectors:
+                              - account.mcpConnector001
